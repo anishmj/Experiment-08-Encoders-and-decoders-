@@ -1,7 +1,10 @@
 # Experiment-08- Encoders-and-decoders 
-### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
+### HARDWARE REQUIRED:  – 
+PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED:  
+ Quartus prime
 ### THEORY 
 
 ## Encoders
@@ -54,43 +57,76 @@ D7 = X Y Z
 ![image](https://user-images.githubusercontent.com/36288975/171543866-5a6eace6-8683-49d7-9c4f-a7cb30ec3035.png)
 ## Figure -04 8 to 3 Decoder implementation 
 
-### Procedure
-/* write all the steps invloved */
+## Procedure
 
+### Step 1:
+Module Declaration. module is a keywords defined in Verilog .
 
+### Step 2:
+Input-Output Delecaration.
 
-### PROGRAM 
-/*
+8 to 3 Encoder has eight inputs and three outputs.
+3 to 8 Decoder has three inputs and eight outputs.
+
+### Step 3:
+In the verilog program of encoder we use or gates .
+In the verilog program of decoder we use only and gates.
+
+### Step 4:
+Ending module. endmodule is a keywords defined in Verilog.
+
+## PROGRAM 
+```
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: ANISH MJ
+RegisterNumber:  212221230005
+```
 
+### Encoders
+```
+module encoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input d0,d1,d2,d3,d4,d5,d6,d7;
+output a,b,c;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
 
+```
+### Decoders 
+```
+module decoder(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0=(~a & ~b & ~c);
+assign d1=(~a & ~b & c);
+assign d2=(~a & b & ~c);
+assign d3=(~a &b & c);
+assign d4=(a & ~b & ~c);
+assign d5=(a & ~b & c);
+assign d6=(a & b & ~c);
+assign d7=(a & b &c);
+endmodule
 
-
-
+```
 
 ### RTL LOGIC  
 
+### Encoders
+![op](./encode1.png)
+### Decoders 
+![op](./decode1.png)
 
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
+### TIMING DIGRAMS 
+### Encoders
+![op](./encoder2.png)
+### Decoders 
+![op](./decode2.png)
 
 ### TRUTH TABLE 
-
-
-
-
-
-
+### Encoders
+![op](./tte.png)
+### Decoders
+![op](./ttd.png)
 ### RESULTS 
+Implementation of 8 to 3 Encoder and  3 to 8 Decoder is done using verilog and its outputs is validated.
